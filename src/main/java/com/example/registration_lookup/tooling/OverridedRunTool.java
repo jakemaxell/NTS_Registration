@@ -23,8 +23,10 @@ public class OverridedRunTool implements CommandLineRunner {
 
     public void loadDatabase(){
         System.out.println("Loading the Database. . .");
-        List<Guest> guests = CSVHelper.readGuestsFromFile();
-        guestRepository.saveAll(guests);
+        if(guestRepository.count() == 0){
+            List<Guest> guests = CSVHelper.readGuestsFromFile();
+            guestRepository.saveAll(guests);
+        }
     }
 
     public static void main(String[] args, GuestRepository guestRepository){
