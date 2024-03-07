@@ -12,4 +12,7 @@ public interface GuestRepository extends JpaRepository<Guest, UUID> {
     @Query("SELECT g FROM Guest g WHERE g.lastName = :lastName")
     List<Guest> findByLastName(String lastName);
 
+    @Query("SELECT g FROM Guest g ORDER BY g.lastName")
+    List<Guest> findAllByLastName();
+
 }

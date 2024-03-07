@@ -11,8 +11,8 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>registration_lookup</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>NTS-Guest-Registration</artifactId>
+	<version>beta</version>
 	<name>registration_lookup</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -49,6 +49,13 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>2.2.224</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
+			<version>23-ea+3</version>
 		</dependency>
 
 	</dependencies>
