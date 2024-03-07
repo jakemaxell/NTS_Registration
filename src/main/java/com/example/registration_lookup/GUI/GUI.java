@@ -62,10 +62,12 @@ public class GUI {
         JButton clearButton = new JButton("Clear");
         clearButton.setBounds(155, 100, 100, 30);
         clearButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 searchText.setText("");
             }
+
         });
 
         frame.add(title);

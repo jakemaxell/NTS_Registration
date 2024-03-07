@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CSVHelper {
 
-    static final private String path = "/files/test_guest_data.csv";
+    static final private String path = "/files/guests.csv";
 
     public static List<Guest> readGuestsFromFile(){
         List<Guest> guests = new ArrayList<Guest>();
