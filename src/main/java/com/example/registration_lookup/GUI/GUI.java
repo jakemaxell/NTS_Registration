@@ -6,9 +6,12 @@ import com.example.registration_lookup.repository.GuestRepository;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class GUI {
 
@@ -20,18 +23,25 @@ public class GUI {
         JLabel title = new JLabel("Guest Registration Search Engine");
         title.setBounds(50, 25, 300, 30);
 
-        JTextField searchText = new JTextField();
-        searchText.setBounds(50, 50, 200, 30);
-
         JButton searchButton = new JButton("Search");
         searchButton.setBounds(50, 100, 100, 30);
+
+        JTextField searchText = new JTextField();
+        searchText.setBounds(50, 50, 200, 30);
         searchButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String searchQuery = searchText.getText().toLowerCase(Locale.ROOT);
-                List<Guest> searchResults = guestRepository.findByLastName(searchQuery);
+                List<Guest> searchResults;
+                if(Objects.equals(searchText.getText(), "show all")){
+                    searchResults = guestRepository.findAllByLastName();
+                }
+                else{
+                    String searchQuery = searchText.getText().toLowerCase(Locale.ROOT);
+                    searchResults = guestRepository.findByLastName(searchQuery.trim());
+                }
+
                 System.out.println("Search Result Size = " + searchResults.size());
 
                 JFrame searchResultsFrame = new JFrame("Search Results");
@@ -48,7 +58,10 @@ public class GUI {
                     count++;
                 }
 
-                searchResultsFrame.add(new JList<>(baseDetails.toArray()));
+                JList<Object> details = new JList<>(baseDetails.toArray());
+                JScrollPane scrollPane = new JScrollPane(details);
+
+                searchResultsFrame.add(scrollPane);
                 searchResultsFrame.pack();
                 searchResultsFrame.setLocationRelativeTo(null);
                 searchResultsFrame.setSize(1000, 500);
@@ -56,6 +69,23 @@ public class GUI {
 
                 searchText.setText("");
             }
+
+        });
+
+        searchText.addKeyListener(new KeyListener(){
+
+            @Override
+            public void keyTyped(KeyEvent e){}
+
+            @Override
+            public void keyPressed(KeyEvent e){
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    searchButton.doClick();
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e){}
 
         });
 
