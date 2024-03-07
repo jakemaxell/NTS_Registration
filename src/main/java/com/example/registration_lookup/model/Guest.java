@@ -80,4 +80,12 @@ public class Guest {
         System.out.println("Emergency Contact Phone Number: " + emergencyContactNumber);
     }
 
+    public String previewData() {
+        String formattedFirstName = String.format("%-30s", firstName + " " + lastName);
+        String formattedEmergencyContactName = String.format("%-30s", emergencyContactName);
+        String formattedEmergencyContactNumber = String.format("%-80s", emergencyContactNumber);
+
+        return formattedFirstName + formattedEmergencyContactName + formattedEmergencyContactNumber;
+    }
+
 }
