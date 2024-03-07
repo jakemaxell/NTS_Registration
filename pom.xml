@@ -11,8 +11,8 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>registration_lookup</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>NTS-Guest-Registration</artifactId>
+	<version>beta</version>
 	<name>registration_lookup</name>
 	<description>Demo project for Spring Boot</description>
 

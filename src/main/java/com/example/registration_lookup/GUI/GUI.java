@@ -2,10 +2,8 @@ package com.example.registration_lookup.GUI;
 
 import com.example.registration_lookup.model.Guest;
 import com.example.registration_lookup.repository.GuestRepository;
-import org.h2.util.json.JsonConstructorUtils;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,11 +17,14 @@ public class GUI {
 
         JFrame frame = new JFrame("Guest Registration");
 
+        JLabel title = new JLabel("Guest Registration Search Engine");
+        title.setBounds(50, 25, 300, 30);
+
         JTextField searchText = new JTextField();
         searchText.setBounds(50, 50, 200, 30);
 
         JButton searchButton = new JButton("Search");
-        searchButton.setBounds(260, 50, 100, 30);
+        searchButton.setBounds(50, 100, 100, 30);
         searchButton.addActionListener(new ActionListener() {
 
             @Override
@@ -58,10 +59,21 @@ public class GUI {
 
         });
 
+        JButton clearButton = new JButton("Clear");
+        clearButton.setBounds(155, 100, 100, 30);
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                searchText.setText("");
+            }
+        });
+
+        frame.add(title);
         frame.add(searchText);
         frame.add(searchButton);
+        frame.add(clearButton);
 
-        frame.setSize(400, 500);
+        frame.setSize(350, 250);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
