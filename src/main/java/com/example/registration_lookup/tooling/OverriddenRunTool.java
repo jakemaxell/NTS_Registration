@@ -27,6 +27,7 @@ public class OverriddenRunTool implements CommandLineRunner {
             List<Guest> guests = CSVHelper.readGuestsFromFile();
             guestRepository.saveAll(guests);
         }
+        System.out.println("Database Size = " + guestRepository.count());
     }
 
     public static void main(String[] args, GuestRepository guestRepository){
