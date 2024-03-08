@@ -28,6 +28,10 @@ public class GUI {
 
         JTextField searchText = new JTextField();
         searchText.setBounds(50, 50, 200, 30);
+
+        JButton clearButton = new JButton("Clear");
+        clearButton.setBounds(155, 100, 100, 30);
+
         searchButton.addActionListener(new ActionListener() {
 
             @Override
@@ -71,7 +75,6 @@ public class GUI {
             }
 
         });
-
         searchText.addKeyListener(new KeyListener(){
 
             @Override
@@ -88,9 +91,6 @@ public class GUI {
             public void keyReleased(KeyEvent e){}
 
         });
-
-        JButton clearButton = new JButton("Clear");
-        clearButton.setBounds(155, 100, 100, 30);
         clearButton.addActionListener(new ActionListener() {
 
             @Override
